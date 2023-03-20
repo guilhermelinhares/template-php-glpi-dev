@@ -1,8 +1,7 @@
 FROM gitpod/workspace-mysql
 
-USER root
 #Install PHP-Dependencies
-RUN sudo apt install php8.0-{cli,imap,ldap,xmlrpc,soap,curl,snmp,zip,apcu,gd,mbstring,mysql,xml,bz2,intl}
+RUN sudo apt-get update && sudo apt install php8.0-{cli,imap,ldap,xmlrpc,soap,curl,snmp,zip,apcu,gd,mbstring,mysql,xml,bz2,intl}
 #Install Xdebug
 RUN sudo apt-get install php-xdebug php8.0-xdebug php8.0 php8.0-cgi
 
