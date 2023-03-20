@@ -1,14 +1,9 @@
-FROM gitpod/workspace-mysql
+FROM gitpod/workspace-full:latest
 
 USER gitpod
 
-RUN sudo add-apt-repository ppa:ondrej/php && \
-    sudo install-packages php8.0
-#Install PHP-Dependencies
-RUN sudo apt-get update
-RUN sudo apt install php8.0-{cli,imap,ldap,xmlrpc,soap,curl,snmp,zip,apcu,gd,mbstring,mysql,xml,bz2,intl}
 #Install Xdebug
-RUN sudo apt install php-xdebug php8.0-xdebug php8.0 php8.0-cgi
+RUN sudo install-packages php-xdebug
 
 #Custom apache configuration
 COPY webserver/apache2/glpi.conf /etc/apache2/sites-available/glpi.conf
