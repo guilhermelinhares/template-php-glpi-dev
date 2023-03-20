@@ -7,3 +7,9 @@ ports:
 # MySQL server
 - port: 3306
   onOpen: ignore
+
+vscode:
+  extensions:
+  - xdebug.php-debug
+  - devsense.phptools-vscode
+  - bmewburn.vscode-intelephense-client
