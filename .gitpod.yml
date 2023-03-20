@@ -1,2 +1,9 @@
 image:
   file: .gitpod.Dockerfile
+ports:
+# Apache server
+- port: 8080
+  onOpen: open-preview
+# MySQL server
+- port: 3306
+  onOpen: ignore
