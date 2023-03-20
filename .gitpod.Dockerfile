@@ -2,8 +2,8 @@ FROM gitpod/workspace-full:latest
 
 USER gitpod
 
-# Add repositorie PHP
-RUN sudo add-apt-repository -y ppa:ondrej/php 
+# Update
+RUN sudo apt-get update -y 
 #Install PHP dependencies
 RUN sudo apt-get install -y php8.0 php8.0-cli php8.0-imap php8.0-ldap php8.0-xmlrpc php8.0-soap php8.0-curl \ 
 && php8.0-snmp php8.0-zip php8.0-apcu php8.0-gd php8.0-mbstring php8.0-mysql php8.0-xml \
