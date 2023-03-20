@@ -5,7 +5,10 @@ USER gitpod
 # Add repositorie PHP
 RUN sudo add-apt-repository -y ppa:ondrej/php 
 #Install PHP dependencies
-RUN sudo apt install -y php8.0-{cli,imap,ldap,xmlrpc,soap,curl,snmp,zip,apcu,gd,mbstring,mysql,xml,bz2,intl,cgi}
+RUN sudo apt-get install -y php8.0 php8.0-cli php8.0-imap php8.0-ldap php8.0-xmlrpc php8.0-soap php8.0-curl \ 
+&& php8.0-snmp php8.0-zip php8.0-apcu php8.0-gd php8.0-mbstring php8.0-mysql php8.0-xml \
+&& php8.0-bz2 php8.0-intl && php8.0-cgi \
+&& sudo apt-get -y autoremove
 
 # Change your version here
 RUN sudo update-alternatives --set php $(which php8.0)

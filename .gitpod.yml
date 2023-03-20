@@ -8,6 +8,13 @@ ports:
 - port: 3306
   onOpen: ignore
 
+tasks:
+  - name: Apache
+    command: >
+        touch /var/log/apache2/error.log;
+        touch /var/log/apache2/access.log;
+        multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
+
 vscode:
   extensions:
   - xdebug.php-debug
