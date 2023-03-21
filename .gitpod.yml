@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 ports:
 # Apache server
-- port: 8080
+- port: 8001
   onOpen: open-preview
   visibility: public
   name: Apache
@@ -19,7 +19,7 @@ tasks:
       sudo wget https://github.com/glpi-project/glpi/releases/download/${GLPI_VERSION}/glpi-${GLPI_VERSION}.tgz ${GITPOD_REPO_ROOT};     
       sudo tar -zxvf glpi-${GLPI_VERSION}.tgz -C ${GITPOD_REPO_ROOT};
       sudo chmod 775 -R ${GITPOD_REPO_ROOT}/glpi/;
-      sudo chown -R www-data:gipod ${GITPOD_REPO_ROOT}/glpi/;
+      sudo chown -R www-data:gitpod ${GITPOD_REPO_ROOT}/glpi/;
       sudo rm glpi-$GLPI_VERSION.tgz;
 
   - name: Terminal

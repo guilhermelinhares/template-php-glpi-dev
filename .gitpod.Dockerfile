@@ -26,6 +26,7 @@ php${PHP_VERSION}-mysql \
 php${PHP_VERSION}-xml \
 php${PHP_VERSION}-bz2 \
 php${PHP_VERSION}-intl \
+php${PHP_VERSION}-ldap \
 && sudo apt autoremove -y
 
 #Custom xdebug configuration
