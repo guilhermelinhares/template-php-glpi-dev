@@ -15,8 +15,8 @@ tasks:
   - name: GLPI
     env:
       GLPI_VERSION: "10.0.6"
-    command: >
-      if[ "$(ls ${GITPOD_REPO_ROOT}/glpi)"];
+    command: |
+     if [ -d "${GITPOD_REPO_ROOT}/${glpi}" ] 
       then
         echo "GLPI is already installed"
       else
