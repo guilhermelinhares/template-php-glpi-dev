@@ -12,6 +12,14 @@ ports:
   name: Mysql
 
 tasks:
+ - name: GLPI
+    command: >
+      cd /tmp
+      wget https://github.com/glpi-project/glpi/releases/download/10.0.6/glpi-10.0.6.tgz
+      tar -zxvf glpi-10.0.6.tgz ${GITPOD_REPO_ROOT}/glpi
+      sudo chmod 775 ${GITPOD_REPO_ROOT}/glpi/* -Rf
+      sudo chown www-data. ${GITPOD_REPO_ROOT}/glpi/* -Rf
+
   - name: Terminal
     command: >
       echo "";
@@ -20,6 +28,7 @@ tasks:
       echo " * apachectl start";
       echo " * gp open /var/log/apache2/access.log";
       echo " * gp open /var/log/apache2/error.log";
+
   - name: Apache
     command: >
         apachectl start &&
