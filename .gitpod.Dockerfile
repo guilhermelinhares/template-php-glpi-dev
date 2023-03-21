@@ -10,12 +10,14 @@ RUN sudo update-alternatives --set php $(which php${PHP_VERSION})
 # Install PHP Dependencies + Xdebug + Mysql
 RUN sudo apt-get update -q  \
 && sudo install-packages -yq \
+php-xdebug \
 libapache2-mod-php \
 php${PHP_VERSION}-cli \
 php${PHP_VERSION}-imap \
 php${PHP_VERSION}-xmlrpc \
 php${PHP_VERSION}-soap \
 php${PHP_VERSION}-xdebug \
+php${PHP_VERSION}-cgi \
 php${PHP_VERSION}-curl \
 php${PHP_VERSION}-snmp \
 php${PHP_VERSION}-zip \
@@ -27,12 +29,12 @@ php${PHP_VERSION}-xml \
 php${PHP_VERSION}-bz2 \
 php${PHP_VERSION}-intl \
 php${PHP_VERSION}-ldap \
+php${PHP_VERSION}-dev \
+php${PHP_VERSION}-intl \
 && sudo apt autoremove -y
 
 #Custom xdebug configuration
-RUN sudo mv /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini.bkp
-COPY --chown=gitpod:gitpod config/xdebug/xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/xdebug.ini
-COPY --chown=gitpod:gitpod config/xdebug/xdebug.ini /etc/php/${PHP_VERSION}/mods-available/xdebug.ini
+RUN sudo cat config/xdebug/20-xdebug.ini >> /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
 
 RUN sudo addgroup gitpod www-data
 

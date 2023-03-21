@@ -11,7 +11,7 @@ ports:
   onOpen: ignore
   name: Mysql
   # xdebug port
-- port: 9003
+- port: 9004
   onOpen: ignore
 
 
@@ -50,7 +50,7 @@ tasks:
         multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
   
   - name: Vscode File
-    command: sudo cp -rp .vscode/ ${GITPOD_REPO_ROOT}/glpi/
+    command: sudo cp -rp .vscode ${GITPOD_REPO_ROOT}/glpi
 
 vscode:
   extensions:
