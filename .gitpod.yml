@@ -4,17 +4,26 @@ ports:
 # Apache server
 - port: 8080
   onOpen: open-preview
+  visibility: public
+  name: Apache
 # MySQL server
 - port: 3306
   onOpen: ignore
+  name: Mysql
 
 tasks:
+  - name: Terminal
+    command: >
+      echo "";
+      echo "Commands you can try:";
+      echo " * apachectl stop";
+      echo " * apachectl start";
+      echo " * gp open /var/log/apache2/access.log";
+      echo " * gp open /var/log/apache2/error.log";
   - name: Apache
     command: >
-        touch /var/log/apache2/error.log;
-        touch /var/log/apache2/access.log;
+        apachectl start &&
         multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
-
 vscode:
   extensions:
   - xdebug.php-debug
