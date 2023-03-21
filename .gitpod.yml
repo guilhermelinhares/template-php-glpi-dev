@@ -15,17 +15,12 @@ tasks:
   - name: GLPI
     env:
       GLPI_VERSION: "10.0.6"
-    command: |
-     if [ -d "${GITPOD_REPO_ROOT}/glpi" ] 
-      then
-        echo "GLPI is already installed"
-      else
-        sudo wget https://github.com/glpi-project/glpi/releases/download/${GLPI_VERSION}/glpi-${GLPI_VERSION}.tgz ${GITPOD_REPO_ROOT};     
-        sudo tar -zxvf glpi-${GLPI_VERSION}.tgz -C ${GITPOD_REPO_ROOT};
-        sudo chmod 775 -R ${GITPOD_REPO_ROOT}/glpi/;
-        sudo chown -R www-data:gitpod ${GITPOD_REPO_ROOT}/glpi/;
-        sudo rm glpi-$GLPI_VERSION.tgz;
-      fi
+    command: >
+      sudo wget https://github.com/glpi-project/glpi/releases/download/${GLPI_VERSION}/glpi-${GLPI_VERSION}.tgz ${GITPOD_REPO_ROOT};     
+      sudo tar -zxvf glpi-${GLPI_VERSION}.tgz -C ${GITPOD_REPO_ROOT};
+      sudo chmod 775 -R ${GITPOD_REPO_ROOT}/glpi/;
+      sudo chown -R www-data:gitpod ${GITPOD_REPO_ROOT}/glpi/;
+      sudo rm glpi-$GLPI_VERSION.tgz;
 
   - name: Terminal
     command: >
