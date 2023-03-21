@@ -35,7 +35,7 @@ php${PHP_VERSION}-fpm \
 && sudo apt autoremove -y
 
 #Custom xdebug configuration
-RUN sudo bash cat config/xdebug/20-xdebug.ini >> /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
+COPY --chown=gitpod:gitpod config/xdebug/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
 
 RUN sudo addgroup gitpod www-data
 
