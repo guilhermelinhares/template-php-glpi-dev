@@ -31,10 +31,11 @@ php${PHP_VERSION}-intl \
 php${PHP_VERSION}-ldap \
 php${PHP_VERSION}-dev \
 php${PHP_VERSION}-intl \
+php${PHP_VERSION}-fpm \
 && sudo apt autoremove -y
 
 #Custom xdebug configuration
-RUN sudo cat config/xdebug/20-xdebug.ini >> /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
+RUN sudo bash cat config/xdebug/20-xdebug.ini >> /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
 
 RUN sudo addgroup gitpod www-data
 
