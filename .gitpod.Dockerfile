@@ -28,7 +28,7 @@ php${PHP_VERSION}-intl \
 && sudo apt autoremove -y
 
 #Custom apache configuration
-COPY --chown=gitpod:gitpod config/apache2/glpi.conf /etc/apache2/sites-available/glpi.conf
+COPY --chown=gitpod:gitpod config/apache2/apache.conf /etc/apache2/sites-available/apache.conf
 
 #Custom xdebug configuration
 RUN sudo mv /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini.bkp
@@ -36,7 +36,7 @@ COPY --chown=gitpod:gitpod config/xdebug/xdebug.ini /etc/php/${PHP_VERSION}/cli/
 COPY --chown=gitpod:gitpod config/xdebug/xdebug.ini /etc/php/${PHP_VERSION}/mods-available/xdebug.ini
 
 #Simbolic Link
-RUN ln -s /etc/apache2/sites-available/glpi.conf /etc/apache2/sites-enabled/glpi.conf
+RUN ln -s /etc/apache2/sites-available/apache.conf /etc/apache2/sites-enabled/apache.conf
 
 RUN sudo addgroup gitpod www-data
 
