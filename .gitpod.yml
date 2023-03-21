@@ -46,11 +46,10 @@ tasks:
 
   - name: Apache
     command: >
-        apachectl start &&
-        multitail /var/log/apache2/error.log -I /var/log/apache2/access.log
-  
-  - name: Vscode File
-    command: sudo cp -rp .vscode ${GITPOD_REPO_ROOT}/glpi
+      apachectl start &&
+      multitail /var/log/apache2/error.log -I /var/log/apache2/access.log;
+      sudo systemctl restart apache2;
+      sudo systemctl restart php8.0-fpm.service;
 
 vscode:
   extensions:

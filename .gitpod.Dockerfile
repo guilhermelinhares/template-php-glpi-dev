@@ -11,6 +11,7 @@ RUN sudo update-alternatives --set php $(which php${PHP_VERSION})
 RUN sudo apt-get update -q  \
 && sudo install-packages -yq \
 php-xdebug \
+php-pear \
 libapache2-mod-php \
 php${PHP_VERSION}-cli \
 php${PHP_VERSION}-imap \
@@ -34,8 +35,10 @@ php${PHP_VERSION}-intl \
 php${PHP_VERSION}-fpm \
 && sudo apt autoremove -y
 
+RUN sudo a2enmod actions fcgid alias proxy_fcgi && sudo a2enconf php8.0-fpm
+
 #Custom xdebug configuration
-COPY --chown=gitpod:gitpod config/xdebug/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
+# COPY --chown=gitpod:gitpod config/xdebug/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
 
 RUN sudo addgroup gitpod www-data
 
