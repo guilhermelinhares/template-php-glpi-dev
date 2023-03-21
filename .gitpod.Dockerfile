@@ -35,8 +35,6 @@ php${PHP_VERSION}-intl \
 php${PHP_VERSION}-fpm \
 && sudo apt autoremove -y
 
-RUN sudo a2enmod actions fcgid alias proxy_fcgi && sudo a2enconf php8.0-fpm
-
 #Custom xdebug configuration
 # COPY --chown=gitpod:gitpod config/xdebug/20-xdebug.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-xdebug.ini
 
