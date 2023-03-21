@@ -11,7 +11,7 @@ ports:
   onOpen: ignore
   name: Mysql
   # xdebug port
-- port: 9004
+- port: 9009
   onOpen: ignore
 
 
@@ -54,7 +54,7 @@ tasks:
 
 vscode:
   extensions:
-  - xdebug.php-debug
+  - felixfbecker.php-debug@1.14.5:xEr6zDqY853IE2HQtLtXPA==
   - devsense.phptools-vscode
   - bmewburn.vscode-intelephense-client
 
