@@ -7,17 +7,17 @@ ports:
   visibility: public
   name: Apache
 # MySQL server
-- port: 3306
+- port: 3308
   onOpen: ignore
   name: Mysql
 
 tasks:
   - name: GLPI
     command: >
-      sudo wget https://github.com/glpi-project/glpi/releases/download/10.0.6/glpi-10.0.6.tgz
-      sudo tar -zxvf glpi-10.0.6.tgz -C ${GITPOD_REPO_ROOT}
-      sudo chmod 775 ${GITPOD_REPO_ROOT}/glpi/* -Rf
-      sudo chown www-data. ${GITPOD_REPO_ROOT}/glpi/* -Rf
+      sudo wget https://github.com/glpi-project/glpi/releases/download/10.0.6/glpi-10.0.6.tgz ${GITPOD_REPO_ROOT};     
+      sudo tar -zxvf glpi-10.0.6.tgz -C ${GITPOD_REPO_ROOT};
+      sudo chmod 775 ${GITPOD_REPO_ROOT}/glpi/* -Rf;
+      sudo chown www-data. ${GITPOD_REPO_ROOT}/glpi/* -Rf;
 
   - name: Terminal
     command: >

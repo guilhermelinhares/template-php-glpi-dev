@@ -53,4 +53,4 @@ COPY --chown=gitpod:gitpod config/mysql/client.cnf /etc/mysql/mysql.conf.d/clien
 
 COPY --chown=gitpod:gitpod config/mysql/mysql-bashrc-launch.sh /etc/mysql/mysql-bashrc-launch.sh
 
-RUN echo "/etc/mysql/mysql-bashrc-launch.sh" >> /home/gitpod/.bashrc.d/100-mysql-launch
+RUN sudo chmod 775 /etc/mysql/mysql-bashrc-launch.sh && echo "/etc/mysql/mysql-bashrc-launch.sh" >> /home/gitpod/.bashrc.d/100-mysql-launch
