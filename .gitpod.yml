@@ -14,7 +14,6 @@ ports:
 tasks:
   - name: GLPI
     command: >
-      cd /tmp
       sudo wget https://github.com/glpi-project/glpi/releases/download/10.0.6/glpi-10.0.6.tgz
       sudo tar -zxvf glpi-10.0.6.tgz -C ${GITPOD_REPO_ROOT}
       sudo chmod 775 ${GITPOD_REPO_ROOT}/glpi/* -Rf
