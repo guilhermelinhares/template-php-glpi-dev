@@ -3,6 +3,7 @@ FROM gitpod/workspace-full:latest
 USER gitpod
 ENV PHP_VERSION="8.0"
 
+ENV APACHE_DOCROOT_IN_REPO="glpi"
 # Change your version here
 RUN sudo update-alternatives --set php $(which php${PHP_VERSION})
 

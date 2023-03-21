@@ -18,6 +18,7 @@ tasks:
       sudo tar -zxvf glpi-10.0.6.tgz -C ${GITPOD_REPO_ROOT};
       sudo chmod 775 ${GITPOD_REPO_ROOT}/glpi/* -Rf;
       sudo chown www-data. ${GITPOD_REPO_ROOT}/glpi/* -Rf;
+      sudo rm glpi-10.0.6.tgz;
 
   - name: Terminal
     command: >
